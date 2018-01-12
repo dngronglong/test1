@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<table class="easyui-datagrid" style="width:auto;height:250px" url="data/datagrid_data1.json" title="车贷信息录入" iconCls="icon-save" toolbar="#tbcad" singleSelect="true" rownumbers="true" pagination="true">
+			<thead>
+				<tr>
+					<th field="itemid" width="80">序号</th>
+					<th field="productid" width="120">合同编号</th>
+					<th field="listprice" width="80" align="right">借款人</th>
+					<th field="status" width="100" align="center">借款期数</th>
+					<th field="unitcost" width="80" align="right">期初本金</th>
+					<th field="attr1" width="200">剩余本金</th>
+					<th field="attr1" width="100" align="center">结清还服务费</th>
+					<th field="status" width="100" align="center">提前结清金额</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="tbcad" style="padding: 5px; height: auto">
+		<div style="margin-bottom: 5px">
+			<a href="javascript:void(0)" class="easyui-linkbutton"
+				iconCls="icon-add" plain="true" onclick="$('#k').window('open')">新增签约</a>
+		</div>
+		</div>
+		<div id="k" class="easyui-window" title="签约信息" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:700px;height:580px;padding:10px;">
+			<div style="padding:3px 2px;border-bottom:1px solid #ccc;margin-bottom: 8px;text-align:center;">个人基本信息</div>
+			<form id="f1" method="post">
+				<table cellpadding="5" id="t1">
+
+					<tr>
+						<td>借款合同:</td>
+						<td><input class="easyui-textbox" type="text" name="contract" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>借款人:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>借款人手机:</td>
+						<td><input class="easyui-textbox" type="text" name="tel" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>业务经理:</td>
+						<td><input class="easyui-textbox" type="text" name="manager" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>借款用途:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>职务:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>身份证:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>借款总额:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>咨询服务费:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>月还款金额:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>额度上限:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+						<td>产品名称:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;" disabled = "disabled"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>贷款期数:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>审批金额*:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>约定放款日*:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>放款/还款银行*:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>放款还款账号*:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>放款/还款开户银行（支行）*:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+				</table>
+				<div style="padding:3px 2px;border-bottom:1px solid #ccc;margin-bottom: 8px;text-align:center;">附件列表</div>
+			
+				<table  cellpadding="5" id="t1">
+
+					<tr>
+						<td>抵押车辆评估表</td>
+						<td><input class="easyui-filebox" name="file1"  style="width:100%">
+							
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>车辆照片</td>
+						<td><input class="easyui-filebox" name="file2"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>车辆登记证书</td>
+						<td><input class="easyui-filebox" name="file3"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>车辆行驶证副本</td>
+						<td><input class="easyui-filebox" name="file4"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>保单（交强险）</td>
+						<td><input class="easyui-filebox" name="file5"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>保单（商业险）</td>
+						<td><input class="easyui-filebox" name="file6"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>其他车辆附件</td>
+						<td><input class="easyui-filebox" name="file7"  style="width:100%">
+						</td>
+						<td>附件大小</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						
+					</tr>
+				</table>
+				
+				</form>
+				</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/icon.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+	</head>
+
+	<body>
+		<table class="easyui-datagrid" style="width:auto;height:250px" url="data/datagrid_data1.json" title="身份信息" iconCls="icon-save" toolbar="#tb1" singleSelect="true" rownumbers="true" pagination="true">
+			<thead>
+				<tr>
+					<th field="itemid" width="80">序号</th>
+					<th field="productid" width="120">合同编号</th>
+					<th field="listprice" width="80" align="right">借款人</th>
+					<th field="unitcost" width="80" align="right">身份证号</th>
+					<th field="attr1" width="200">分公司</th>
+					<th field="status" width="60" align="center">操作</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="tb1" style="padding:5px;height:auto">
+
+			<div>
+				合同编号: <input class="easyui-textbox" type="text" style="width:80px"> 借款人: <input class="easyui-textbox" type="text" style="width:80px"> 分公司:
+				<input class="easyui-combobox" style="width:100px" url="" valueField="id" textField="text">
+				<a href="#" class="easyui-linkbutton" iconCls="icon-search">Search</a>
+			</div>
+			<div style="margin-bottom:5px">
+				<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="$('#w').window('open')">新增车贷申请</a>
+
+			</div>
+		</div>
+
+		<div id="w" class="easyui-window" title="新增车贷申请" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:700px;height:400px;padding:10px;">
+			<div style="padding:3px 2px;border-bottom:1px solid #ccc;margin-bottom: 8px;text-align:center;">身份证信息</div>
+			<form id="ff" method="post">
+				<table id="t2"  cellpadding="5" style="border:1px solid #ccc ;">
+
+					<tr>
+						<td>姓名:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>性别:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>民族:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>出生年月</td>
+						<td><input class="easyui-datebox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>地址:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 300px;"></input>
+						</td>
+					</tr>
+
+					<tr>
+						<td>身份证号:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>签发机关:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+										<tr>
+						<td>有效期开始</td>
+						<td><input class="easyui-datebox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>有效期结束</td>
+						<td><input class="easyui-datebox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>产品:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						
+						
+					</tr>
+				</table>
+
+			</form>
+				    <div style="text-align:center;padding:10px;">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="submitForm()">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="clearForm()">重置</a>
+	    </div>
+		</div>
+			<script>
+		function submitForm(){
+			$('#ff').form('submit',{
+				onSubmit:function(){
+					console.log(585)
+					return $(this).form('enableValidation').form('validate');
+				}
+			});
+		}
+		function clearForm(){
+			$('#ff').form('clear');
+		}
+	</script>
+
+	</body>
+	
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<link rel="stylesheet" type="text/css" href="../css/easyui.css" />
+		<link rel="stylesheet" type="text/css" href="../css/icon.css" />
+		<script type="text/javascript" src="../js/jquery-1.8.0.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="../js/easyui-lang-zh_CN.js"></script>
+	</head>
+
+	<body>
+		<table class="easyui-datagrid" style="width:auto;height:250px" url="" title="用户添加" iconCls="icon-save" toolbar="#tb2" singleSelect="true" rownumbers="true" pagination="true">
+			<thead>
+				<tr>
+					<th field="itemid" width="100">姓名</th>
+					<th field="productid" width="100">登录名</th>
+					<th field="listprice" width="100" align="right">密码</th>
+					<th field="unitcost" width="160" align="right">所属公司</th>
+					<th field="status" width="160" align="center">用户权限</th>
+				</tr>
+			</thead>
+		</table>
+		<div id="tb2" style="padding:5px;height:auto">
+
+			<div>
+				姓名: <input class="easyui-textbox" type="text" style="width:80px">
+				<a href="#" class="easyui-linkbutton" iconCls="icon-search">查询</a>
+			</div>
+			<div style="margin-bottom:5px">
+				<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="$('#wuser').window('open')">新增用户</a>
+				<a class="easyui-linkbutton" iconcls="icon-edit" href="javascript:void(0)" plain="true" onclick="$('#update').window('open')">修改用户</a>
+   				<a class="easyui-linkbutton" iconcls="icon-cancel" href="javascript:void(0)"plain="true" onclick="alterInfo()">删除用户</a>
+			</div>
+		</div>
+
+		<div id="wuser" class="easyui-window" title="新增用户" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:270px;padding:10px;">
+			<div style="padding:3px 2px;border-bottom:1px solid #ccc;margin-bottom: 8px;text-align:center;">用户信息</div>
+			<form id="ff" method="post">
+				<table id="t2"  cellpadding="5" style="border:1px solid #ccc ;">
+
+					<tr>
+						<td>姓名:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>登录名:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>密码:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>所属公司:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					
+					<tr>
+						<td>用户权限:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					
+				</table>
+
+			</form>
+			
+			<div style="text-align:center;padding:10px;">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="submitForm2()" id="s2">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="clearForm2()" id="c2">重置</a>
+	    	</div>
+			
+			<div id="update" class="easyui-window" title="修改用户" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:270px;padding:10px;">
+			<div style="padding:3px 2px;border-bottom:1px solid #ccc;margin-bottom: 8px;text-align:center;">用户信息</div>
+			<form id="ff1" method="post">
+				<table id="t3"  cellpadding="5" style="border:1px solid #ccc ;">
+
+					<tr>
+						<td>姓名:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>登录名:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>密码:</td>
+						<td><input class="easyui-textbox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+						<td>所属公司:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					<tr>
+						<td>用户权限:</td>
+						<td><input class="easyui-combobox" type="text" name="name" data-options="required:true" style="width: 160px;"></input>
+						</td>
+					</tr>
+					
+				</table>
+
+			</form>
+			
+			
+			
+			
+		<div style="text-align:center;padding:10px;">
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="submitForm3()" id="s2">提交</a>
+	    	<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="clearForm3()" id="c2">重置</a>
+	    </div>
+	    
+	    
+		</div>
+			<script>
+		function submitForm2(){
+			$('#ff').form('submit',{
+				onSubmit:function(){
+					console.log(585)
+					return $(this).form('enableValidation').form('validate');
+				}
+			});
+		}
+		function clearForm2(){
+			$('#ff').form('clear');
+		}
+		
+		function submitForm3(){
+			$('#ff1').form('submit',{
+				onSubmit:function(){
+					console.log(585)
+					return $(this).form('enableValidation').form('validate');
+				}
+			});
+		}
+		function clearForm3(){
+			$('#ff1').form('clear');
+		}
+		
+		
+		
+		
+		function alterInfo(){ 
+		
+			jQuery.messager.alert('提示:','删除成功！'); 
+		
+		} 
+	</script>
+
+	</body>
+</html>
